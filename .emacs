@@ -22,11 +22,6 @@
 ;; Remove trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Add google-maps plugin
-;;(add-to-list 'load-path "~/.emacs.d/google-maps")
-;;(load "google-maps.el")
-;;(require 'google-maps)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
