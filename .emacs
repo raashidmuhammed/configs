@@ -60,31 +60,6 @@
  '(markup-title-5-face ((t (:inherit markup-gen-face :underline t :height 1.0))))
  '(term-color-blue ((t (:background "dodger blue" :foreground "dodger blue")))))
 
-;; Add emacs asciidoc-mode
-;;(add-to-list 'load-path "~/.emacs.d/markup-faces")
-;;(require 'markup-faces)
-;;(add-to-list 'load-path "~/.emacs.d/adoc-mode")
-;;(require 'adoc-mode)
-;;(add-to-list 'auto-mode-alist (cons "\\.txt\\'" 'adoc-mode))
-;;(add-hook 'adoc-mode-hook (lambda() (buffer-face-mode t)))
-
-;; Add marmalade package list for emacs
-;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-;; Jenkins
-;;(add-to-list 'load-path "~/.emacs.d/elpa/jenkins-watch-1.2")
-;;(require 'jenkins-watch)
-
-;; Current directory tracking for shell-mode
-;; (defun my-current-directory (text)
-;;   (if (string-match "\\w*:\\([^\n]+\\)\n> " text)
-;;       (setq cur-dir (substring text (match-beginning 1) (match-end 1)))
-;;     (cd cur-dir)
-;;     (message "dir tracking %s" cur-dir)))
-
-;; (defun my-shell-setup ()
-;;   "Track current directory"
-;;   (add-hook 'comint-output-filter-functions 'my-current-directory nil t))
 
 ;; (setq shell-mode-hook 'my-shell-setup)
 ;; Recognize colors in shell-mode
