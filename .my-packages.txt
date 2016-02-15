@@ -1,0 +1,17 @@
+note
+gnome-tweak-tool
+icicles
+lighttpd
+fcgiwrap
+nautilus-dropbox
+bash-completion
+fdupes
+sdcv
+golang-go
+gnome-common
+virtualenv
+docker
+docker-engine
+
+screen
+fbreader

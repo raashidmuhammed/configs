@@ -1,0 +1,2 @@
+.bashrc .crontasks .emacs .git
+autostart-lxde files.txt lxde-rc.xml my-pkgs-list.txt
