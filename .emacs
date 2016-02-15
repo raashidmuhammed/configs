@@ -106,6 +106,6 @@
 ;; Start Emacs server
 (server-start)
 
-;;org-reveal
+;;org-reveal: reveal.js slide tool
 (use-package ox-reveal :ensure t)
 (setq org-reveal-root "/home/user/.emacs.d/reveal.js-master")
