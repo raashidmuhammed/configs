@@ -1,0 +1,74 @@
+require("session.js");
+
+require("new-tabs.js");
+function define_switch_buffer_key (key, buf_num) {
+    define_key(default_global_keymap, key,
+               function (I) {
+                   switch_to_buffer(I.window,
+                                    I.window.buffers.get_buffer(buf_num));
+               });
+}
+
+for (let i = 0; i < 10; ++i) {
+    define_switch_buffer_key(String((i+1)%10), i);
+}
+
+define_delicious_webjumps("raashidmuhammed");
+define_webjump("ticket", "https://pike.zilogic.com/trac/proj/ticket/%s");
+define_webjump("changeset", "https://pike.zilogic.com/trac/proj/changeset/%s/proj");
+define_webjump("review", "https://pike.zilogic.com/reviews/r/%s/");
+define_webjump("slideshare", "http://www.slideshare.net/search/slideshow?searchfrom=header&q=%s");
+
+define_key(content_buffer_normal_keymap, "'", "follow");
+define_key(content_buffer_normal_keymap, "\"", "follow-new-buffer");
+
+define_browser_object_class(
+    "history-url", null,
+    function (I, prompt) {
+        check_buffer (I.buffer, content_buffer);
+        var result = yield I.buffer.window.minibuffer.read_url(
+            $prompt = prompt,  $use_webjumps = false, $use_history = true, $use_bookmarks = false);
+        yield co_return (result);
+    });
+
+interactive("find-url-from-history",
+            "Find a page from history in the current buffer",
+            "find-url",
+            $browser_object = browser_object_history_url);
+
+interactive("find-url-from-history-new-buffer",
+            "Find a page from history in the current buffer",
+            "find-url-new-buffer",
+            $browser_object = browser_object_history_url);
+
+define_key(content_buffer_normal_keymap, "h", "find-url-from-history-new-buffer");
+define_key(content_buffer_normal_keymap, "H", "find-url-from-history");
+
+
+function my_zoom_set (buffer) {
+    browser_zoom_set(buffer, false, 150);
+}
+add_hook('create_buffer_late_hook', my_zoom_set);
+
+/* Add shortcut for frequently visited sites */
+interactive("open-gmail", "Go to gmail", "follow",
+            $browser_object = "http://gmail.com/");
+define_key(content_buffer_normal_keymap, "f1", "open-gmail");
+
+/* Darken page */
+function darken_page (I) {
+    var styles='* { background: black !important; color: grey !important; }'+
+        ':link, :link * { color: #4986dd !important; }'+
+        ':visited, :visited * { color: #d75047 !important; }';
+    var document = I.buffer.document;
+    var newSS=document.createElement('link');
+    newSS.rel='stylesheet';
+    newSS.href='data:text/css,'+escape(styles);
+    document.getElementsByTagName("head")[0].appendChild(newSS);
+}
+interactive("darken-page", "Darken the page in an attempt to save your eyes.",
+            darken_page);
+define_key(content_buffer_normal_keymap, "C-d", "darken-page");
+
+define_key(content_buffer_normal_keymap, "C-f", "buffer-next");
+define_key(content_buffer_normal_keymap, "C-b", "buffer-previous");
