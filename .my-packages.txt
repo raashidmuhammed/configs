@@ -15,3 +15,5 @@ docker-engine
 
 screen
 fbreader
+at
+tmux
