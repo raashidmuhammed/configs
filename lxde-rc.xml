@@ -295,7 +295,7 @@
   <!-- Launch Task Manager with Ctrl+Alt+Del -->
   <keybind key="A-C-Delete">
       <action name="Execute">
-          <command>lxtask</command>
+          <command>lxsession-logout</command>
       </action>
   </keybind>
 
