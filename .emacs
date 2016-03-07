@@ -34,13 +34,15 @@
  '(electric-pair-pairs (quote ((39 . 39) (34 . 34))))
  '(elfeed-feeds
    (quote
-    ("http://feeds.cyberciti.biz/Nixcraft-LinuxFreebsdSolarisTipsTricks" "http://feeds.howtogeek.com/howtogeek")))
+    ("https://cheeaun.github.io/hackerweb/" "http://feeds.cyberciti.biz/Nixcraft-LinuxFreebsdSolarisTipsTricks" "http://feeds.howtogeek.com/howtogeek")))
+ '(grep-find-command (quote ("find . -type f -exec grep -inH -e  {} +" . 34)))
  '(newsticker-url-list (quote (("Linux tips" "www.howtogeek.com" nil nil nil))))
  '(package-archives
    (quote
     (("melpa" . "http://melpa.org/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/")
      ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(rmail-preserve-inbox t)
  '(search-web-default-browser (quote eww-browse-url))
  '(search-web-external-browser (quote eww-browse-url))
  '(search-web-in-emacs-browser (quote eww-browse-url))
@@ -106,6 +108,24 @@
 ;; Start Emacs server
 (server-start)
 
-;;org-reveal: reveal.js slide tool
-(use-package ox-reveal :ensure t)
-(setq org-reveal-root "/home/user/.emacs.d/reveal.js-master")
+;; Set Default browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "/usr/bin/conkeror")
+
+;; Setup RMail
+;;(setenv "MAILHOST" "imap://raashidmuhammed@mail.zilogic.com")
+(setq rmail-primary-inbox-list '("imap://raashidmuhammed@mail.zilogic.com")
+      rmail-pop-password-required t)
+(setq rmail-movemail-variant-in-use 'mailutils)
+(setq rmail-preserve-inbox t)
+
+(autoload 'rfc2047-decode-string "rfc2047")
+(autoload 'rfc2047-decode-region "rfc2047")
+(setq rmail-message-filter
+      (lambda ()
+        (save-excursion
+          (when (search-forward "\n\n" nil t)
+            (rfc2047-decode-region
+              (point-min) (match-beginning 0)))))
+      rmail-summary-line-decoder
+      (function rfc2047-decode-string))
