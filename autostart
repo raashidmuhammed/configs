@@ -1,7 +1,7 @@
+@conkeror
 @emacs24
 @empathy
 @icedove
-@iceweasel
 @redshift -l 13:80 -b 1
 @dropbox start -i
 @lxterminal
