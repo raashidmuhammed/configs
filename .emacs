@@ -112,20 +112,17 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "/usr/bin/conkeror")
 
-;; Setup RMail
-;;(setenv "MAILHOST" "imap://raashidmuhammed@mail.zilogic.com")
-(setq rmail-primary-inbox-list '("imap://raashidmuhammed@mail.zilogic.com")
-      rmail-pop-password-required t)
-(setq rmail-movemail-variant-in-use 'mailutils)
-(setq rmail-preserve-inbox t)
+;; Setup mu4e
+(add-to-list 'load-path "~/.emacs.d/mylisp")
+(require 'setup-mu4e)
 
-(autoload 'rfc2047-decode-string "rfc2047")
-(autoload 'rfc2047-decode-region "rfc2047")
-(setq rmail-message-filter
-      (lambda ()
-        (save-excursion
-          (when (search-forward "\n\n" nil t)
-            (rfc2047-decode-region
-              (point-min) (match-beginning 0)))))
-      rmail-summary-line-decoder
-      (function rfc2047-decode-string))
+;;org-present mode
+(require 'setup-org-present)
+
+;; Emacs ELIM
+(add-to-list 'load-path "/home/user/.emacs.d/elim/elisp")
+(require 'garak)
+
+;; telepathy
+(add-to-list 'load-path "~/.emacs.d/elpa/telepathy-20131209.458")
+(require 'telepathy)
