@@ -72,3 +72,6 @@ define_key(content_buffer_normal_keymap, "C-d", "darken-page");
 
 define_key(content_buffer_normal_keymap, "C-f", "buffer-next");
 define_key(content_buffer_normal_keymap, "C-b", "buffer-previous");
+
+/* Emacs edit */
+editor_shell_command = "emacsclient -c";
