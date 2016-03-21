@@ -17,3 +17,11 @@ screen
 fbreader
 at
 tmux
+libxapian-dev
+libgmime-2.6-dev
+texinfo
+offlineimap
+html2text
+libxml++2.6-2
+libxml2-dev
+libpurple0
