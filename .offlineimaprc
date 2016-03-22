@@ -1,0 +1,21 @@
+[general]
+accounts = Zilogic
+maxsyncaccounts = 3
+
+[Account Zilogic]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Maildir
+
+[Repository Remote]
+type = IMAP
+remotehost = mail.zilogic.com
+remoteuser = raashidmuhammed@zilogic.com
+remotepass = 
+remoteport = 143
+ssl = no
+maxconnections = 1
+realdelete = no
