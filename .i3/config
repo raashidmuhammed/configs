@@ -34,7 +34,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $alt_mod+Shift+q kill
+bindsym $alt_mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -79,7 +79,7 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+a layout toggle split
 
 # toggle tiling / floating
 bindsym $alt_mod+Shift+space floating toggle
@@ -88,7 +88,7 @@ bindsym $alt_mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -158,10 +158,22 @@ bar {
 
 
 # Startup applications
-exec emacs
-exec conkeror
-exec lxterminal
-exec --no-startup-id i3-msg 'workspace 2; exec icedove'
+exec --no-startup-id i3-msg 'workspace 1; exec lxterminal'
+exec --no-startup-id i3-msg 'workspace 2; exec conkeror'
+exec --no-startup-id i3-msg 'workspace 3; exec emacs'
+exec --no-startup-id i3-msg 'workspace 4; exec icedove'
 
 # Lock screen
 bindsym $mod+b exec i3lock -c 000000
+
+# Jump to Emacs
+bindsym $mod+e [title="emacs"] focus
+
+# Jump to Icedove
+bindsym $mod+i [title="Icedove"] focus
+
+# Jump to Conkeror
+bindsym $mod+c [title="Conkeror"] focus
+
+# Jump to Terminal
+bindsym $mod+x [title="Terminal"] focus
