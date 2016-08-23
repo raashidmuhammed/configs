@@ -19,8 +19,8 @@ define_webjump("changeset", "https://pike.zilogic.com/trac/proj/changeset/%s/pro
 define_webjump("review", "https://pike.zilogic.com/reviews/r/%s/");
 define_webjump("slideshare", "http://www.slideshare.net/search/slideshow?searchfrom=header&q=%s");
 
-define_key(content_buffer_normal_keymap, "'", "follow");
-define_key(content_buffer_normal_keymap, "\"", "follow-new-buffer");
+define_key(content_buffer_normal_keymap, "\"", "follow");
+define_key(content_buffer_normal_keymap, "'", "follow-new-buffer");
 
 define_browser_object_class(
     "history-url", null,
