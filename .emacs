@@ -1,3 +1,10 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (set-background-color "#281d1d")
 (set-foreground-color "white")
 (set-cursor-color "white")
@@ -14,7 +21,7 @@
 (ido-mode 1)
 
 ;; Set font size
-(set-default-font "Inconsolata 16")
+(set-default-font "Inconsolata 18")
 
 ;; Show column number
 (column-number-mode 1)
@@ -42,6 +49,7 @@
     (("melpa" . "http://melpa.org/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/")
      ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(package-selected-packages (quote (smex)))
  '(rmail-preserve-inbox t)
  '(search-web-default-browser (quote eww-browse-url))
  '(search-web-external-browser (quote eww-browse-url))
@@ -73,16 +81,16 @@
 (add-hook 'prog-mode-hook         'hs-minor-mode)
 
 ;; Disaster - C code disassembly
-(add-to-list 'load-path "~/.emacs.d/elpa/disaster-20130509.1055")
-(require 'disaster)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/disaster-20130509.1055")
+;; (require 'disaster)
 
 ;; window switching
-(add-to-list 'load-path "~/.emacs.d/elpa/switch-window-0.9")
-(require 'switch-window)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/switch-window-0.9")
+;; (require 'switch-window)
 
 ;; emacs wiki mode
-(add-to-list 'load-path "~/.emacs.d/emacs-wiki-2.72")
-(require 'emacs-wiki)
+;; (add-to-list 'load-path "~/.emacs.d/emacs-wiki-2.72")
+;; (require 'emacs-wiki)
 
 ;; auto check spelling for .txt files
 (add-hook 'text-mode-hook 'flyspell-mode)
@@ -113,16 +121,19 @@
       browse-url-generic-program "/usr/bin/conkeror")
 
 ;; Setup mu4e
-(add-to-list 'load-path "~/.emacs.d/mylisp")
-(require 'setup-mu4e)
+;;(add-to-list 'load-path "~/.emacs.d/mylisp")
+;;(require 'setup-mu4e)
 
 ;;org-present mode
-(require 'setup-org-present)
+;;(require 'setup-org-present)
 
 ;; Emacs ELIM
-(add-to-list 'load-path "/home/user/.emacs.d/elim/elisp")
-(require 'garak)
+;;(add-to-list 'load-path "/home/user/.emacs.d/elim/elisp")
+;;(require 'garak)
 
 ;; telepathy
-(add-to-list 'load-path "~/.emacs.d/elpa/telepathy-20131209.458")
-(require 'telepathy)
+;;(add-to-list 'load-path "~/.emacs.d/elpa/telepathy-20131209.458")
+;;(require 'telepathy)
+
+;; Set theme
+;;(load-theme tango-dark)
